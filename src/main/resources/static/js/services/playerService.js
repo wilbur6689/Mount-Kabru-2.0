@@ -19,7 +19,7 @@ mountKabru.service("playerService", function($http,errorService)
     service.getPlayer = function(user, callback)
             {
                 console.log("Entering getUser");
-                    $http({ method:'GET', url:'./services/user/' + id, data: {'id': user.id} }).then(function (response)
+                    $http({ method:'GET', url:'./services/player/' + id, data: {'id': user.id} }).then(function (response)
                     {
                         console.log("id: " + id);
                         console.log("user: " + user);
