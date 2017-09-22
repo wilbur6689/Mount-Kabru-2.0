@@ -1,0 +1,14 @@
+
+<div class="container" ng-controller="loginCtrl" >
+    <div class="col-md-12">
+        <h4>Welcome, Please Log in Below:</h4>
+        <input ng-model="username" id="username" placeholder="username" />
+        </br>
+        <input type="password" ng-model="password" id="userPassword" placeholder="password" />
+        </br>
+        <div class="loginSubmit">
+            <button type="submit" ng-click="login(username, password)">Login</button>
+        </div>
+    </div>
+</div>
+
