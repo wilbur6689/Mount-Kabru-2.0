@@ -1,6 +1,10 @@
 package com.game.Mount.Kabru.beans;
 
+import com.game.Mount.Kabru.beans.enums.Items;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,19 +14,42 @@ import java.io.Serializable;
 @Entity
 @Table(name="ACTOR")
 public class Game implements Serializable{
-    
+
+    private Integer gameId;
     private String main;
     private Player player;
     private World world;
     private boolean endOfGame = false;
     
-    private Item[] items;
+    private Items[] items;
     private Actor[][] actors;
     private Hero hero;
   
     
 
     public Game() {
+    }
+
+    public Game(Integer gameId, String main, Player player, World world, boolean endOfGame, Items[] items, Actor[][] actors, Hero hero) {
+        this.gameId = gameId;
+        this.main = main;
+        this.player = player;
+        this.world = world;
+        this.endOfGame = endOfGame;
+        this.items = items;
+        this.actors = actors;
+        this.hero = hero;
+    }
+
+
+    @Id
+    @Column(name = "GAME_ID")
+    public Integer getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(Integer gameId) {
+        this.gameId = gameId;
     }
 
     public String getMain() {
@@ -32,7 +59,7 @@ public class Game implements Serializable{
     public void setMain(String main) {
         this.main = main;
     }
-    
+
     public Player getPlayer() {
         return player;
     }
@@ -58,11 +85,11 @@ public class Game implements Serializable{
     }
     
         
-    public Item[] getItems() {
+    public Items[] getItems() {
         return items;
     }
 
-    public void setItems(Item[] items) {
+    public void setItems(Items[] items) {
         this.items = items;
     }
 

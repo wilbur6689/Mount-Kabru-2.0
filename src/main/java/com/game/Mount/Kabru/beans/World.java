@@ -1,11 +1,8 @@
 package com.game.Mount.Kabru.beans;
 
-import byui.cit260.mountKabru.exceptions.GameControlException;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name="ACTOR")
@@ -19,30 +16,6 @@ public class World implements Serializable {
     public World() {
     }
 
-    public World(int rowCount, int columnCount) throws GameControlException {
-
-        if (rowCount < 1 || columnCount < 1) {
-            throw new GameControlException("The number of rows and columns must be > Zero");
-
-        }
-
-        this.rowCount = rowCount;
-        this.columnCount = columnCount;
-        this.locations = new Location[rowCount][columnCount];
-
-        for (int row = 0; row < rowCount; row++) {
-            for (int column = 0; column < columnCount; column++) {
-                Location location = new Location();
-                location.setColumn(column);
-                location.setRow(row);
-                location.setDiscovered(false);
-
-                //assign the Location object to the current position in the array
-                locations[row][column] = location;
-            }
-        }
-
-    }
 
     public Location[][] getLocations() {
         return locations;

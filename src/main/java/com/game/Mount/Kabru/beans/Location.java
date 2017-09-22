@@ -1,11 +1,8 @@
 package com.game.Mount.Kabru.beans;
 
-import byui.cit260.mountKabru.control.WorldControl;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name="ACTOR")

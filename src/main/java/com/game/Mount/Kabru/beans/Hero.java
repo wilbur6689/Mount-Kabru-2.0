@@ -1,51 +1,36 @@
 package com.game.Mount.Kabru.beans;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 @Entity
 @Table(name="ACTOR")
 public class Hero extends Actor implements  Serializable  {
 
+    private Integer heroId;
     private String heroName;
     private String heroClassType;
-    private int levelOfHero;
-    private int xpToNextLevel;
-    private int experience;
-    private int mana;
-    private int strength;
+    private Integer levelOfHero;
+    private Integer xpToNextLevel;
+    private Integer experience;
+    private Integer mana;
+    private Integer strength;
  
     private Location currentLocation;
     private Actor foundMonster;
     private Player player;
-    private Inventory inventory;
-
-    
-     
+    private ArrayList inventory;
 
     public Hero() {
         
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
-    }
-
-    public Hero(String heroName, String heroClassType, int levelOfHero, int xpToNextLevel, int experience, int mana, int strength, Player player, Inventory inventory, String name,int maxHitPoints, int currentHitPoints, int defence, int attack, int spellAttack, int xpGained, int gold) {
-        super(name, maxHitPoints, currentHitPoints, defence, attack, spellAttack, xpGained, gold);
+    public Hero(Integer heroId, String heroName, String heroClassType, Integer levelOfHero, Integer xpToNextLevel, Integer experience, Integer mana, Integer strength, Location currentLocation, Actor foundMonster, Player player, ArrayList inventory) {
+        this.heroId = heroId;
         this.heroName = heroName;
         this.heroClassType = heroClassType;
         this.levelOfHero = levelOfHero;
@@ -53,88 +38,98 @@ public class Hero extends Actor implements  Serializable  {
         this.experience = experience;
         this.mana = mana;
         this.strength = strength;
+        this.currentLocation = currentLocation;
+        this.foundMonster = foundMonster;
         this.player = player;
         this.inventory = inventory;
     }
 
-    
-
-    
-
-    
-
-    public Hero(String heroName, String heroClassType, int levelOfHero, int experience, int mana, int strength) {
+    public Hero(Integer actorId, String name, Integer maxHitPoints, Integer currentHitPoints, Integer defense, Integer attack, Integer spellAttack, Integer xpGained, Integer gold, Event[] randomEvent, Game game, Integer heroId, String heroName, String heroClassType, Integer levelOfHero, Integer xpToNextLevel, Integer experience, Integer mana, Integer strength, Location currentLocation, Actor foundMonster, Player player, ArrayList inventory) {
+        super(actorId, name, maxHitPoints, currentHitPoints, defense, attack, spellAttack, xpGained, gold, randomEvent, game);
+        this.heroId = heroId;
         this.heroName = heroName;
         this.heroClassType = heroClassType;
         this.levelOfHero = levelOfHero;
+        this.xpToNextLevel = xpToNextLevel;
         this.experience = experience;
         this.mana = mana;
         this.strength = strength;
+        this.currentLocation = currentLocation;
+        this.foundMonster = foundMonster;
+        this.player = player;
+        this.inventory = inventory;
     }
 
-    
+
+    @Id
+    @Column(name = "HERO_ID")
+    public Integer getHeroId() {
+        return heroId;
+    }
+    public void setHeroId(Integer heroId) {
+        this.heroId = heroId;
+    }
+
+    @Column(name = "HERO_NAME")
     public String getHeroName() {
         return heroName;
     }
-    
     public void setHeroName(String heroName) {
         this.heroName = heroName;
     }
-    
+
+    @Column(name = "HERO_TYPE")
     public String getHeroClassType() {
         return heroClassType;
     }
-
     public void setHeroClassType(String heroClassType) {
         this.heroClassType = heroClassType;
     }
 
-    public int getLevelOfHero() {
+    @Column(name = "HERO_LEVEL")
+    public Integer getLevelOfHero() {
         return levelOfHero;
     }
-
-    public void setLevelOfHero(int levelOfHero) {
+    public void setLevelOfHero(Integer levelOfHero) {
         this.levelOfHero = levelOfHero;
     }
 
-    public int getXpToNextLevel() {
+    @Column(name = "HERO_NEXT_LEVEL")
+    public Integer getXpToNextLevel() {
         return xpToNextLevel;
     }
-
-    public void setXpToNextLevel(int xpToNextLevel) {
+    public void setXpToNextLevel(Integer xpToNextLevel) {
         this.xpToNextLevel = xpToNextLevel;
     }
-    
-    
 
-    public int getExperience() {
+    @Column(name = "HERO_EXP")
+    public Integer getExperience() {
         return experience;
     }
-
-    public void setExperience(int experience) {
+    public void setExperience(Integer experience) {
         this.experience = experience;
     }
 
-    public int getMana() {
+    @Column(name = "HERO_MANA")
+    public Integer getMana() {
         return mana;
     }
-
-    public void setMana(int mana) {
+    public void setMana(Integer mana) {
         this.mana = mana;
     }
-    
-     public int getStrength() {
+
+    @Column(name = "HERO_STR")
+    public Integer getStrength() {
         return strength;
     }
-
-    public void setStrength(int strength) {
+    public void setStrength(Integer strength) {
         this.strength = strength;
     }
 
+    @Column(name = "HERO_CURR_LOCATION")
     public Location getCurrentLocation() {
         return currentLocation;
     }
-
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
@@ -142,14 +137,24 @@ public class Hero extends Actor implements  Serializable  {
     public Actor getFoundMonster() {
         return foundMonster;
     }
-
     public void setFoundMonster(Actor foundMonster) {
         this.foundMonster = foundMonster;
     }
-    
-    
-    
-    
+
+    public Player getPlayer() {
+        return player;
+    }
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public ArrayList getInventory() {
+        return inventory;
+    }
+    public void setInventory(ArrayList inventory) {
+        this.inventory = inventory;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;

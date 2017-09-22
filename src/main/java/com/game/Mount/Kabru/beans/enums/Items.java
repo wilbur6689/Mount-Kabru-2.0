@@ -1,4 +1,6 @@
-package com.game.Mount.Kabru.beans;
+package com.game.Mount.Kabru.beans.enums;
+
+import com.game.Mount.Kabru.beans.Game;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -6,9 +8,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="ACTOR")
-public enum Item implements Serializable{
+public enum Items {
 
-    
+
     bareHands("Bare Hands", "Easy, Cheap, and always avaliable", 8,0,0,0,0,0),
     stick("Stick", "A scary looking Stick",20,0,300,200,0,0),
     club("Club", "Heavier then a stick, hurts more too",30,0,600,500,0,0),
@@ -23,7 +25,7 @@ public enum Item implements Serializable{
     battleAxe("Battle Axe","This thing is sharp enough to kill you just looking at it", 120,0,6000,4500,0,0),
     scythe("Scythe","I dont think this was used to harvest grain... just saying",130,0,7000,5200,0,0),
     warHammer("War Hammer", "Swing it and stuff dies", 150,0,8000,6000,0,0),
-    
+
     clothes("clothes","Plain, simple, and comfortable clothes", 0,5,0,0,0,0),
     thickGarment("Thick Garment","Thick and stuffy but better then clothes", 0,10,300,200,0,0),
     leatherArmor("leatherArmor","light weight, sturdy, and smells good, what more could you want?",0,20,600,500,0,0),
@@ -38,18 +40,18 @@ public enum Item implements Serializable{
     diamondHalfPlate("Diamond Half Plate","Diamonds are a adventures best friend", 0,110,6000,4500,0,0),
     diamondFullPlate("Diamond Full Plate","Diamonds are a adventures best friend", 0,120,7000,5200,0,0),
     dragonBoneArmor("Dragon Bone Armor","By far the best armor on the market, just dont let smog see you wearing it",0,130,8000,6000,0,0),
-    
-    
+
+
     manaPotion10("manaPotion10","Restores 10 Mana Points",0,0,60,0,10,0),
     manaPotion20("manaPotion20","Restores 20 Mana Points",0,0,110,0,20,0),
     manaPotion30("manaPotion30","Restores 40 Mana Points",0,0,200,0,30,0),
     manaPotion40("manaPotion40","Restores 80 Mana Points",0,0,380,0,40,0),
-    
+
     healthPotion10("healthPotion10","Heals you for 10 hitpoints",0,0,60,0,0,10),
     healthPotion20("healthPotion20","Heals you for 20 hitpoints",0,0,110,0,0,20),
     healthPotion30("healthPotion30","Heals you for 40 hitpoints",0,0,200,0,0,30),
     healthPotion40("healthPotion40","Heals you for 80 hitpoints",0,0,380,0,0,40),
-    
+
     lameMagic("Lame Magic", "You dream of being able to cast a spell", 0,0,0,0,5,0),
     roaringWinds("Roaring Winds","releases winds of fury", 0,0,200,100,10,10),
     summonDemons("Summon Demons","you summoned the dead and now rule all, hah jk ", 0,0,1000,500,40,20),
@@ -64,10 +66,10 @@ public enum Item implements Serializable{
     private final int sellValue;
     private final int spellAttackValue;
     private final int healthValue;
-    
+
     private Game game;
 
-    private Item(String name, String description, int attackValue, int defenceValue, int costValue, int sellValue, int manaValue, int healthValue) {
+    private Items(String name, String description, int attackValue, int defenceValue, int costValue, int sellValue, int manaValue, int healthValue) {
         this.name = name;
         this.description = description;
         this.attackValue = attackValue;
@@ -85,13 +87,13 @@ public enum Item implements Serializable{
     public String getDescription() {
         return description;
     }
-    
+
 
     public int getAttackValue() {
         return attackValue;
     }
 
-   
+
 
     public int getDefenseValue() {
         return defenseValue;
@@ -123,19 +125,20 @@ public enum Item implements Serializable{
 
 
 
- 
+
     @Override
     public String toString() {
-        return "Item{" 
-                + "description=" + description 
-                + ", attackValue=" + attackValue 
-                + ", defenceValue=" + defenseValue 
-                + ", costValue=" + costValue 
-                + ", sellValue=" + sellValue 
-                + ", manaValue=" + spellAttackValue 
-                + ", healthValue=" + healthValue 
-                + ", game=" + game 
+        return "Item{"
+                + "description=" + description
+                + ", attackValue=" + attackValue
+                + ", defenceValue=" + defenseValue
+                + ", costValue=" + costValue
+                + ", sellValue=" + sellValue
+                + ", manaValue=" + spellAttackValue
+                + ", healthValue=" + healthValue
+                + ", game=" + game
                 + '}';
     }
-    
+
 }
+
